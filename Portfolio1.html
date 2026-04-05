@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Muhammad Anus | .NET Developer Portfolio</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fc;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* navbar styles */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(203, 213, 225, 0.5);
+            padding: 0.9rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            transition: all 0.2s;
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #0f172a, #3b82f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* modern glassmorphic elements */
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(226, 232, 240, 0.6);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.12);
+            border-color: #cbd5e1;
+        }
+
+        /* hero section with image */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 2rem;
+            padding: 2rem 2rem;
+            margin-bottom: 2.5rem;
+            color: white;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            flex: 2;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+            background: #334155;
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-role {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.35rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.8rem;
+            row-gap: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: rgba(255,255,255,0.08);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .contact-item i {
+            font-size: 1rem;
+            width: 1.2rem;
+            color: #94a3b8;
+        }
+
+        .contact-item a, .contact-item span {
+            color: #f1f5f9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(120deg, #0f172a, #2d3a5e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #a855f7);
+            border-radius: 4px;
+        }
+
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+        }
+
+        .company {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .role {
+            font-weight: 600;
+            color: #3b82f6;
+            font-size: 1.1rem;
+        }
+
+        .date {
+            color: #64748b;
+            font-weight: 500;
+            background: #f1f5f9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.8rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.3rem 1.5rem;
+            transition: all 0.2s;
+            border: 1px solid #eef2ff;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .project-links {
+            margin: 0.75rem 0 0.9rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            font-size: 0.75rem;
+        }
+
+        .project-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            background: #eff6ff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            transition: 0.2s;
+        }
+
+        .project-links a i {
+            margin-right: 4px;
+        }
+
+        .project-links a:hover {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .tech-badge {
+            background: #eef2ff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #1e40af;
+        }
+
+        .desc-list {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+
+        .desc-list li {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .desc-list li i {
+            color: #3b82f6;
+            font-size: 0.7rem;
+            margin-top: 0.2rem;
+            min-width: 1rem;
+        }
+
+        .specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .skill-tag {
+            background: #eef2ff;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e293b;
+            transition: 0.1s;
+        }
+
+        .skill-tag:hover {
+            background: #cbdffc;
+            transform: scale(0.98);
+        }
+
+        .edu-detail {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            color: #64748b;
+            font-size: 0.8rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 1.8rem;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .contact-grid {
+                justify-content: center;
+            }
+            .navbar {
+                padding: 0.8rem 1rem;
+                justify-content: center;
+                flex-direction: column;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                justify-content: center;
+            }
+            .name {
+                font-size: 2.2rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-img {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- MODERN STICKY NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo"><i class="fas fa-code"></i> M.ANUS</div>
+        <ul class="nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+            <li><a href="#projects"><i class="fas fa-layer-group"></i> Projects</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- HERO SECTION WITH IMAGE (ID home for anchor) -->
+        <div class="hero" id="home">
+            <div class="hero-content">
+                <div class="name">MUHAMMAD ANUS</div>
+                <div class="badge-role"><i class="fas fa-code"></i> .NET Developer | Full-Stack Engineer</div>
+                <div class="contact-grid">
+                    <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:muhammadanus738@gmail.com">muhammadanus738@gmail.com</a></div>
+                    <div class="contact-item"><i class="fas fa-mobile-alt"></i> <span>📱 +92 313 2286214</span></div>
+                    <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>📞 +92 308 3955796</span></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>House no 1004, Unit # 04, Hashmi Colony Block B, Latifabad, Hyderabad</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Professional Image Section: placeholder image with elegant initials avatar, user can replace 'src' with actual photo -->
+                <img class="profile-img" src="https://ui-avatars.com/api/?background=3b82f6&color=fff&rounded=true&size=160&font-size=0.70&name=Muhammad+Anus" alt="Muhammad Anus profile" 
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?background=0f172a&color=fff&rounded=true&size=160&name=MA';">
+                <div style="margin-top: 12px; font-size: 0.7rem; opacity: 0.8;"><i class="fas fa-camera"></i> Portfolio Portrait</div>
+            </div>
+        </div>
+
+        <!-- WORK EXPERIENCE SECTION (ID experience) -->
+        <div class="card" style="padding: 1.8rem 1.8rem; margin-bottom: 2.2rem;" id="experience">
+            <div class="exp-header">
+                <div>
+                    <div class="company">Out2Sol</div>
+                    <div class="role"><i class="fas fa-laptop-code"></i> .Net Developer</div>
+                </div>
+                <div class="date"><i class="far fa-calendar-alt"></i> 21 Dec 2021 – Present</div>
+            </div>
+            <p style="margin: 0.8rem 0 1rem 0; color: #334155; border-left: 3px solid #3b82f6; padding-left: 1rem; font-weight: 500;">
+                Full-stack .NET specialist delivering enterprise solutions for logistics, security, e‑commerce, and B2B integrations.
+                Led API development, cross‑team collaboration, and full lifecycle projects.
+            </p>
+            <div style="margin-top: 0.5rem;">
+                <span class="tech-badge"><i class="fas fa-check-circle"></i> Full‑stack ownership</span>
+                <span class="tech-badge"><i class="fas fa-users"></i> Client & stakeholder collaboration</span>
+                <span class="tech-badge"><i class="fas fa-microphone-alt"></i> Requirements & documentation</span>
+            </div>
+        </div>
+
+        <!-- PROJECTS SECTION (ID projects) -->
+        <div id="projects">
+            <div class="section-title"><i class="fas fa-rocket"></i> Flagship Projects & Responsibilities</div>
+            <div class="projects-grid">
+                <!-- DP World Jeddah -->
+                <div class="project-card">
+                    <h3><i class="fas fa-ship"></i> DP World Jeddah</h3>
+                    <div class="project-links">
+                        <a href="https://www.dpworld.sa/Account/Login" target="_blank"><i class="fas fa-external-link-alt"></i> DP World Portal</a>
+                    </div>
+                    <div><span class="tech-badge">OPS</span> <span class="tech-badge">TechCheck</span> <span class="tech-badge">SLS</span> <span class="tech-badge">E-Services APIs</span></div>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-caret-right"></i> Design, development & implementation of software for port management systems.</li>
+                        <li><i class="fas fa-caret-right"></i> Built & maintained high-performance APIs for seamless cross‑platform data exchange.</li>
+                        <li><i class="fas fa-caret-right"></i> Collaborated with cross‑functional teams to ensure reliability, scalability & compliance.</li>
+                    </ul>
+                </div>
+
+                <!-- FedEx Jeddah (Sab Project) -->
+                <div class="project-card">
+                    <h3><i class="fas fa-box"></i> FedEx Jeddah – Sab Project</h3>
+                    <div><span class="tech-badge">Sab System</span> <span class="tech-badge">Cash App (Kotlin)</span></div>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-caret-right"></i> Key role in Sab system integration for supply chain & logistics management.</li>
+                        <li><i class="fas fa-caret-right"></i> Developed Cash App to improve secure & efficient payment processing.</li>
+                        <li><i class="fas fa-caret-right"></i> Optimized financial transaction flows and backend logic.</li>
+                    </ul>
+                </div>
+
+                <!-- Jeddah Security Project -->
+                <div class="project-card">
+                    <h3><i class="fas fa-shield-alt"></i> Jeddah Security Project</h3>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-caret-right"></i> Designed security system for critical infrastructure monitoring & incident response.</li>
+                        <li><i class="fas fa-caret-right"></i> Integrated real‑time data collection and intelligent alert systems.</li>
+                        <li><i class="fas fa-caret-right"></i> Enhanced safety & reduced response times via proactive architecture.</li>
+                    </ul>
+                </div>
+
+                <!-- Salomi HSE Mobile App -->
+                <div class="project-card">
+                    <h3><i class="fas fa-mobile-alt"></i> Salomi HSE</h3>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.devenhanced.salomi.app" target="_blank"><i class="fab fa-google-play"></i> Play Store</a>
+                        <a href="https://devportal.salomi.com.sa/Account/Login" target="_blank"><i class="fas fa-code-branch"></i> DevPortal</a>
+                        <a href="https://salomi.com.sa/" target="_blank"><i class="fas fa-globe"></i> Official Site</a>
+                    </div>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-caret-right"></i> Led end-to-end development of Salomi mobile app for retail sector.</li>
+                        <li><i class="fas fa-caret-right"></i> Optimized performance, smooth UX, and high user engagement.</li>
+                        <li><i class="fas fa-caret-right"></i> Integrated backend APIs and real-time sync.</li>
+                    </ul>
+                </div>
+
+                <!-- Djibouti Project (Jawad App & Admin Portal) -->
+                <div class="project-card">
+                    <h3><i class="fas fa-store"></i> Djibouti Project – Jawad</h3>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.jawadapp" target="_blank"><i class="fab fa-google-play"></i> Jawad App</a>
+                    </div>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-caret-right"></i> Developed Jawad mobile app to enhance operational efficiency & customer service.</li>
+                        <li><i class="fas fa-caret-right"></i> Built comprehensive Admin Portal for real‑time management & decision making.</li>
+                        <li><i class="fas fa-caret-right"></i> Improved oversight and reduced manual processes.</li>
+                    </ul>
+                </div>
+
+                <!-- E-Commerce Website -->
+                <div class="project-card">
+                    <h3><i class="fas fa-shopping-cart"></i> E‑Commerce Platform</h3>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-caret-right"></i> Full-cycle development: product listings, multi‑payment gateways, order tracking.</li>
+                        <li><i class="fas fa-caret-right"></i> Personalized dashboards for users and admin analytics.</li>
+                        <li><i class="fas fa-caret-right"></i> Scalable architecture with secure transaction handling.</li>
+                    </ul>
+                </div>
+
+                <!-- B2B Payment Integration & Invoicing -->
+                <div class="project-card">
+                    <h3><i class="fas fa-handshake"></i> B2B Payment & Invoicing Suite</h3>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-caret-right"></i> Integrated & optimized B2B payment gateways for seamless secure business transactions.</li>
+                        <li><i class="fas fa-caret-right"></i> Automated invoicing modules: billing, reporting, error reduction.</li>
+                        <li><i class="fas fa-caret-right"></i> Full‑stack ownership: documentation, client meetings, requirement gathering.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Contributions (TechPro, ESS, O360, R&D, cross-functional) -->
+            <div class="card" style="padding: 1.5rem; margin-top: 2rem; background: linear-gradient(105deg, #ffffff 0%, #fafcff 100%);">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+                    <div>
+                        <h3 style="font-weight: 700; font-size: 1.25rem;"><i class="fas fa-microchip"></i> Further Contributions & Innovation</h3>
+                        <ul style="margin-top: 0.7rem; list-style: none; display: flex; flex-wrap: wrap; gap: 1rem;">
+                            <li style="background: #eef2ff; padding: 0.2rem 0.9rem; border-radius: 30px;">✔ TechPro</li>
+                            <li style="background: #eef2ff; padding: 0.2rem 0.9rem; border-radius: 30px;">✔ ESS</li>
+                            <li style="background: #eef2ff; padding: 0.2rem 0.9rem; border-radius: 30px;">✔ O360</li>
+                        </ul>
+                        <p style="margin-top: 0.8rem; color: #2d3a5e;"><i class="fas fa-flask"></i> <strong>R&D & Cross-team leadership:</strong> Undertook independent research and development for innovative solutions. Collaborated with cross‑functional teams to explore new technologies, improve existing systems, and drive technical excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION SECTION (ID education) -->
+        <div style="margin: 2.5rem 0 2rem 0;" id="education">
+            <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+            <div class="edu-detail">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;">
+                    <h3 style="font-size: 1.4rem; font-weight: 700;">BS Software Engineering</h3>
+                    <span style="background: #e2e8f0; padding: 0.2rem 0.9rem; border-radius: 30px;">2020</span>
+                </div>
+                <p style="font-size: 1rem; margin: 0.3rem 0 0.5rem 0; color: #2563eb; font-weight: 500;">University of Sindh, Jamshoro</p>
+                <p><i class="fas fa-code-branch"></i> Department of Software Engineering</p>
+                <p style="margin-top: 0.6rem;"><i class="fas fa-star-of-life"></i> <strong>Areas of special interest:</strong> Web & App Development, Data Science</p>
+            </div>
+        </div>
+
+        <!-- TECHNICAL SPECIALTIES (ID skills) -->
+        <div id="skills">
+            <div class="section-title"><i class="fas fa-cogs"></i> Technical Specialties</div>
+            <div class="card" style="padding: 1.8rem;">
+                <div class="specialties">
+                    <span class="skill-tag">.NET</span> <span class="skill-tag">.NET Core</span> <span class="skill-tag">Python</span>
+                    <span class="skill-tag">ASP.NET MVC</span> <span class="skill-tag">HTML5/CSS3</span> <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">jQuery</span> <span class="skill-tag">JavaScript</span> <span class="skill-tag">AngularJS</span>
+                    <span class="skill-tag">Microsoft SQL Server</span> <span class="skill-tag">Ionic</span> <span class="skill-tag">Mobile App Development</span>
+                    <span class="skill-tag">REST API</span> <span class="skill-tag">WebAPI</span> <span class="skill-tag">API Integration</span>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.85rem; color: #475569; border-top: 1px dashed #cbd5e1; padding-top: 1rem;">
+                    <i class="fas fa-cloud-upload-alt"></i> Full-stack expertise: end-to-end solution design, microservices, cloud-ready APIs, mobile hybrid apps (Ionic), and database optimization.
+                </p>
+            </div>
+        </div>
+
+        <!-- Additional Note -->
+        <div class="card" style="margin-top: 2rem; background: #f8fafc; padding: 1.2rem 1.8rem;">
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                <div><i class="fas fa-check-circle" style="color: #2b9348;"></i> <strong>Full-cycle developer</strong> – from documentation & meetings to deployment & maintenance</div>
+                <div><i class="fas fa-chart-line"></i> <strong>Impact:</strong> OPS, TechCheck, SLS, E-Services APIs, Sab, Cash App, Jawad, HSE platform</div>
+                <div><i class="fas fa-handshake"></i> <strong>Cross-industry:</strong> Logistics, Security, Retail, Port Management, E‑commerce</div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer-note">
+            <i class="far fa-copyright"></i> 2025 Muhammad Anus — .NET Developer | Built with modern design & responsiveness
+            <br><span style="font-size: 0.7rem;">📍 Hyderabad, Pakistan | 📧 muhammadanus738@gmail.com | 📞 +92 313 2286214</span>
+        </div>
+    </div>
+</body>
+</html>
